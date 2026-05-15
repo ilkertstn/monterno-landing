@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -10,11 +11,21 @@ export default function HomePage() {
 
       {/* HERO */}
       <header className="hero" data-hero-dark="">
-        <div className="hero__bg" aria-hidden="true" />
+        <div className="hero__bg" aria-hidden="true">
+          <Image
+            alt=""
+            className="hero__bgImage"
+            fill
+            priority
+            sizes="100vw"
+            src="/images/banner.png"
+          />
+        </div>
 
         <div className="hero__inner">
-          <div>
+          <div className="flex flex-col justify-center hero__brandLockup">
             <h2 className="display hero__title">Monterno</h2>
+            <span className="hero__subtitle">Milano</span>
           </div>
 
           <div className="hero__cta">
