@@ -14,7 +14,7 @@ export default function HomePage() {
 
         <div className="hero__inner">
           <div>
-            <h1 className="display hero__title">Monterno</h1>
+            <h2 className="display hero__title">Monterno</h2>
           </div>
 
           <div className="hero__cta">

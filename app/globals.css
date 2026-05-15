@@ -328,8 +328,8 @@ p { text-wrap: pretty; max-width: 64ch; }
 .display.hero__title {
   color: var(--bg);
   font-family: var(--sans);
-  font-size: clamp(56napx, 3.2vw, 52px);
-  font-weight: 300;
+  font-size: clamp(52napx, 3.2vw, 52px);
+  font-weight: 900;
   line-height: 1;
   max-width: 14ch;
   text-transform: uppercase;
