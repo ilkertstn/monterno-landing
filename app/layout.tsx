@@ -15,6 +15,36 @@ export const metadata: Metadata = {
   title: "Monterno Milano — Modern İtalyan Gömleği",
   description:
     "İtalyan modasının sessiz disiplininden ilham alan çağdaş bir gömlek markası.",
+  icons: {
+    icon: [
+      {
+        url: "/images/monterno-favicon-package/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/images/monterno-favicon-package/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/images/monterno-favicon-package/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/monterno-favicon-package/favicon-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/images/monterno-favicon-package/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
