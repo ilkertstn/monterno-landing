@@ -3,11 +3,17 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
+import { getDictionary, localePath, type Locale } from "@/lib/i18n";
 
 export default function HomePage() {
+  return <HomeContent locale="tr" />;
+}
+
+export function HomeContent({ locale }: { locale: Locale }) {
+  const t = getDictionary(locale).home;
   return (
     <>
-      <Nav current="home" light />
+      <Nav current="home" light locale={locale} />
 
       {/* HERO */}
       <header className="hero" data-hero-dark="">
@@ -29,8 +35,8 @@ export default function HomePage() {
           </div>
 
           <div className="hero__cta">
-            <Link href="/gomlekler" className="btn btn--light">
-              Koleksiyonu görün
+            <Link href={localePath(locale, "/gomlekler")} className="btn btn--light">
+              {t.heroCta}
             </Link>
           </div>
         </div>
@@ -40,29 +46,24 @@ export default function HomePage() {
       <section className="section">
         <div className="shell manifesto">
           <div className="manifesto__side reveal">
-            <span className="eyebrow">Felsefe</span>
+            <span className="eyebrow">{t.philosophy}</span>
             <h3 className="display" style={{ marginTop: 18, marginBottom: 36 }}>
-              İyi bir gömlek
+              {t.manifestoTitle[0]}
               <br />
-              sessizce konuşur.
+              {t.manifestoTitle[1]}
             </h3>
             <div className="manifesto__image" aria-label="Monterno gömlek detayı" />
           </div>
 
           <div className="manifesto__body reveal">
             <p className="manifesto__quote">
-              Modern <em>İtalyan</em> sadeliği. Doğru kumaş, net form, dürüst{" "}
-              <em>kesim</em>.
+              {t.manifestoQuote[0]}<em>{t.manifestoQuote[1]}</em>{t.manifestoQuote[2]}
+              <em>{t.manifestoQuote[3]}</em>{t.manifestoQuote[4]}
             </p>
 
             <div className="rule" style={{ margin: "56px 0 28px" }} />
 
-            <p className="lede">
-              Monterno Milano, İtalyan modasının sessiz disiplininden ilham alan
-              çağdaş bir gömlek markasıdır. Kaliteli kumaş, dengeli kalıp ve
-              dürüst kesim üzerine kuruludur. Trende karışmayan, mevsime
-              aldırmayan, üzerinize zamanla yerleşen bir gardırop için.
-            </p>
+            <p className="lede">{t.manifestoBody}</p>
           </div>
         </div>
       </section>
@@ -72,18 +73,18 @@ export default function HomePage() {
         <div className="shell">
           <div className="pieces__head reveal">
             <div>
-              <span className="eyebrow">Gömlekler</span>
+              <span className="eyebrow">{t.shirts}</span>
               <h2 className="display" style={{ marginTop: 16 }}>
-                İmza parçalar.
+                {t.signaturePieces}
               </h2>
             </div>
-            <Link href="/gomlekler" className="link-arrow">
-              Tüm koleksiyon →
+            <Link href={localePath(locale, "/gomlekler")} className="link-arrow">
+              {t.allCollection}
             </Link>
           </div>
 
           <div className="pieces__grid">
-            <Link className="piece reveal" href="/gomlekler#bianca">
+            <Link className="piece reveal" href={localePath(locale, "/gomlekler#bianca")}>
               <div className="piece__image piece__image--bianca" />
               <div className="piece__row">
                 <div className="piece__name">
@@ -92,12 +93,12 @@ export default function HomePage() {
                 <div className="piece__num">N° 01</div>
               </div>
               <div className="piece__meta">
-                <span>Pamuk · Ekru</span>
-                <span>Overshirt</span>
+                <span>{t.pieces.avorio[0]}</span>
+                <span>{t.pieces.avorio[1]}</span>
               </div>
             </Link>
 
-            <Link className="piece reveal" href="/gomlekler#lino">
+            <Link className="piece reveal" href={localePath(locale, "/gomlekler#lino")}>
               <div className="piece__image piece__image--lino" />
               <div className="piece__row">
                 <div className="piece__name">
@@ -106,12 +107,12 @@ export default function HomePage() {
                 <div className="piece__num">N° 03</div>
               </div>
               <div className="piece__meta">
-                <span>Keten · Beyaz</span>
-                <span>Rahat</span>
+                <span>{t.pieces.lino[0]}</span>
+                <span>{t.pieces.lino[1]}</span>
               </div>
             </Link>
 
-            <Link className="piece reveal" href="/gomlekler#notte">
+            <Link className="piece reveal" href={localePath(locale, "/gomlekler#notte")}>
               <div className="piece__image piece__image--notte" />
               <div className="piece__row">
                 <div className="piece__name">
@@ -120,8 +121,8 @@ export default function HomePage() {
                 <div className="piece__num">N° 07</div>
               </div>
               <div className="piece__meta">
-                <span>Dokulu kumaş · Lacivert</span>
-                <span>Kısa kol</span>
+                <span>{t.pieces.notte[0]}</span>
+                <span>{t.pieces.notte[1]}</span>
               </div>
             </Link>
           </div>
@@ -135,36 +136,12 @@ export default function HomePage() {
             <div className="fabric__image" aria-label="Monterno kumaş detayı" />
           </div>
           <div className="fabric__body reveal">
-            <span className="eyebrow">Kumaşlar</span>
+            <span className="eyebrow">{t.fabrics}</span>
             <h2 className="display" style={{ marginTop: 16 }}>
-              Kumaşın <em>doğruluğu</em>.
+              {t.fabricTitle[0]}<em>{t.fabricTitle[1]}</em>{t.fabricTitle[2]}
             </h2>
-            <p className="lede" style={{ marginTop: 26 }}>
-              Her kumaşı tek tek seçiyoruz. Como poplin&apos;i ve uzun elyaflı
-              pamuğu Kuzey İtalya&apos;dan, hafif keteni Portekiz&apos;in batı
-              kıyısından, gece gömlekleri için yoğun poplin&apos;i ise
-              Biella&apos;dan alıyoruz.
-            </p>
-            <p>
-              Sertifika kumaşın hikâyesinin yarısı; gerçek ölçüt elde tutmak,
-              gün boyu giymek ve birkaç yıkama sonra hâlâ aynı düşmesini
-              beklemektir.
-            </p>
-
-            <div className="fabric__numbers">
-              <div>
-                <div className="n">05</div>
-                <div className="l">Model · per Stagione</div>
-              </div>
-              <div>
-                <div className="n">03</div>
-                <div className="l">Kumaş ortağı</div>
-              </div>
-              <div>
-                <div className="n">120/2</div>
-                <div className="l">İplik · Cotone</div>
-              </div>
-            </div>
+            <p className="lede" style={{ marginTop: 26 }}>{t.fabricLead}</p>
+            <p>{t.fabricCopy}</p>
           </div>
         </div>
       </section>
@@ -180,9 +157,9 @@ export default function HomePage() {
       >
         <div className="editorial__img reveal" aria-label="Monterno editorial çekimi" />
         <div className="editorial__cap reveal">
-          <span>Fotoğraf 04 / 12</span>
-          <span className="center">Editorial · Sonbahar–Kış 26</span>
-          <span className="right">Monterno Milano</span>
+          <span>{t.editorial[0]}</span>
+          <span className="center">{t.editorial[1]}</span>
+          <span className="right">{t.editorial[2]}</span>
         </div>
       </section>
 
@@ -190,9 +167,9 @@ export default function HomePage() {
       <section className="section">
         <div className="shell atelier">
           <div className="atelier__intro reveal">
-            <span className="eyebrow">Prensipler</span>
+            <span className="eyebrow">{t.principles}</span>
             <h2 className="display" style={{ marginTop: 16, marginBottom: 48 }}>
-              Neye <em>önem</em> veririz.
+              {t.principlesTitle[0]}<em>{t.principlesTitle[1]}</em>{t.principlesTitle[2]}
             </h2>
           </div>
           <div className="atelier__media reveal">
@@ -200,50 +177,26 @@ export default function HomePage() {
           </div>
           <div className="atelier__content reveal">
             <div className="atelier__body">
-              <p className="lede">
-                Monterno Milano&apos;yu birkaç basit ilke üzerine kurduk. Her
-                tasarım kararını bu prensiplere göre veriyoruz — gösterişten
-                önce anlamlı olmasına bakıyoruz.
-              </p>
+              <p className="lede">{t.principlesLead}</p>
             </div>
 
             <div className="atelier__list">
-              <div className="row">
-                <div className="num">01</div>
-                <div className="ttl">
-                  <em>Kalite</em> — iyi bir gömlek iyi kumaşla başlar.
+              {t.principleRows.map((row) => (
+                <div className="row" key={row[0]}>
+                  <div className="num">{row[0]}</div>
+                  <div className="ttl">
+                    <em>{row[1]}</em> — {row[2]}
+                  </div>
+                  <div className="yr">{row[3]}</div>
                 </div>
-                <div className="yr">Malzeme</div>
-              </div>
-              <div className="row">
-                <div className="num">02</div>
-                <div className="ttl">
-                  <em>Sadelik</em> — trende değil, zaman dışı tasarıma
-                  odaklıyız.
-                </div>
-                <div className="yr">Tasarım</div>
-              </div>
-              <div className="row">
-                <div className="num">03</div>
-                <div className="ttl">
-                  <em>Denge</em> — modern kesim, klasik duruş.
-                </div>
-                <div className="yr">Kalıp</div>
-              </div>
-              <div className="row">
-                <div className="num">04</div>
-                <div className="ttl">
-                  <em>Sessizlik</em> — logo değil, gömleğin kendisi konuşur.
-                </div>
-                <div className="yr">İşçilik</div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <Newsletter />
-      <Footer />
+      <Newsletter locale={locale} />
+      <Footer locale={locale} />
     </>
   );
 }

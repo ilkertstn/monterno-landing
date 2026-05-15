@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import RevealInit from "@/components/RevealInit";
 
@@ -16,9 +17,11 @@ export const metadata: Metadata = {
     "İtalyan modasının sessiz disiplininden ilham alan çağdaş bir gömlek markası.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headerLocale = (await headers()).get("x-locale");
+  const locale = headerLocale === "en" || headerLocale === "ru" ? headerLocale : "tr";
   return (
-    <html lang="tr" className={interTight.className}>
+    <html lang={locale} className={interTight.className}>
       <body>
         {children}
         <RevealInit />

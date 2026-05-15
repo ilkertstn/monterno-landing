@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { getDictionary, localePath, type Locale } from "@/lib/i18n";
 
-export default function Footer() {
+export default function Footer({ locale = "tr" }: { locale?: Locale }) {
+  const t = getDictionary(locale).footer;
   return (
     <footer className="footer">
       <div className="footer__grid">
@@ -8,33 +10,30 @@ export default function Footer() {
           <div className="mark">
             Monterno <em style={{ fontStyle: "italic" }}>Milano</em>
           </div>
-          <p>
-            İtalyan modasının sessiz disiplininden ilham alan çağdaş bir gömlek
-            markası. Doğru kumaş, dengeli kalıp, zaman dışı kesim.
-          </p>
+          <p>{t.copy}</p>
         </div>
         <div>
-          <h4>Sayfalar</h4>
+          <h4>{t.pages}</h4>
           <ul>
-            <li><Link href="/">Ana Sayfa</Link></li>
-            <li><Link href="/gomlekler">Gömlekler</Link></li>
-            <li><Link href="/atelier">Hakkımızda</Link></li>
-            <li><Link href="/atelier#showroom">Showroom</Link></li>
+            <li><Link href={localePath(locale, "/")}>{getDictionary(locale).nav.home}</Link></li>
+            <li><Link href={localePath(locale, "/gomlekler")}>{getDictionary(locale).nav.shirts}</Link></li>
+            <li><Link href={localePath(locale, "/atelier")}>{getDictionary(locale).nav.atelier}</Link></li>
+            <li><Link href={localePath(locale, "/atelier#showroom")}>{getDictionary(locale).nav.showroom}</Link></li>
           </ul>
         </div>
         <div>
-          <h4>Marka</h4>
+          <h4>{t.brand}</h4>
           <ul>
-            <li><Link href="/atelier#filosofia">Felsefe</Link></li>
-            <li><Link href="/atelier#materiali">Kumaşlar</Link></li>
-            <li><Link href="/atelier#vestibilita">Beden &amp; Fit</Link></li>
-            <li><Link href="/#letter">Bülten</Link></li>
+            <li><Link href={localePath(locale, "/atelier#filosofia")}>{t.philosophy}</Link></li>
+            <li><Link href={localePath(locale, "/atelier#materiali")}>{t.fabrics}</Link></li>
+            <li><Link href={localePath(locale, "/atelier#vestibilita")}>{t.fit}</Link></li>
+            <li><Link href={localePath(locale, "/#letter")}>{t.newsletter}</Link></li>
           </ul>
         </div>
         <div>
-          <h4>İletişim</h4>
+          <h4>{t.contact}</h4>
           <ul>
-            <li>İstanbul · Galata Showroom</li>
+            <li>{t.address}</li>
             <li>
               <a href="mailto:showroom@monternomilano.com">
                info@mayagmurtextile.com
@@ -44,7 +43,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer__bottom">
-        <span>© 2026 Monterno Milano</span>
+        <span>{t.copyright}</span>
       </div>
     </footer>
   );

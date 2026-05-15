@@ -150,6 +150,74 @@ p { text-wrap: pretty; max-width: 64ch; }
   opacity: 0.85;
 }
 .nav__right .ico-btn:hover{ opacity: 0.55; }
+.lang-select {
+  position: relative;
+}
+.lang-select__button {
+  appearance: none;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  gap: 9px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 2px 0;
+}
+.lang-select__chevron {
+  border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  display: block;
+  height: 7px;
+  margin-top: 4px;
+  transform: rotate(-45deg);
+  transition: transform 180ms ease;
+  width: 7px;
+}
+.lang-select.is-open .lang-select__chevron {
+  transform: rotate(135deg);
+}
+.lang-select__menu {
+  background: var(--bg);
+  color: var(--fg);
+  display: grid;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  gap: 22px;
+  left: 0;
+  letter-spacing: 0.02em;
+  min-width: 54px;
+  opacity: 0;
+  padding: 22px 0 2px;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 2px);
+  transform: translateY(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  visibility: hidden;
+}
+.nav.is-light:not(.is-scrolled) .lang-select__menu {
+  background: transparent;
+  color: var(--bg);
+}
+.lang-select.is-open .lang-select__menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+}
+.lang-select__menu a {
+  transition: opacity 180ms ease;
+}
+.lang-select__menu a:hover {
+  opacity: 0.55;
+}
 .nav__menu-toggle,
 .nav__mobile-panel {
   display: none;
@@ -249,6 +317,30 @@ p { text-wrap: pretty; max-width: 64ch; }
     letter-spacing: 0.08em;
     padding-top: 24px;
     text-transform: uppercase;
+  }
+  .nav__mobile-lang {
+    display: grid;
+    gap: 18px;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    padding-top: 8px;
+  }
+  .nav__mobile-lang span {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+  }
+  .nav__mobile-lang span::after {
+    border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    content: "";
+    height: 7px;
+    margin-top: 4px;
+    transform: rotate(-45deg);
+    width: 7px;
+  }
+  .nav__mobile-lang a {
+    width: fit-content;
   }
 }
 
