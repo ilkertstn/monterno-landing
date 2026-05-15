@@ -248,7 +248,7 @@ export default function AtelierPage() {
               </div>
               <div>
                 <span>Randevu</span>
-                <span>showroom@monternomilano.com</span>
+                <span>info@mayagmurtextile.com</span>
               </div>
             </div>
           </div>

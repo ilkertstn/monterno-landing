@@ -37,7 +37,7 @@ export default function Footer() {
             <li>İstanbul · Galata Showroom</li>
             <li>
               <a href="mailto:showroom@monternomilano.com">
-                showroom@monternomilano.com
+               info@mayagmurtextile.com
               </a>
             </li>
           </ul>
