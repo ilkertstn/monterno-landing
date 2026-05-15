@@ -10,7 +10,7 @@ export default function Footer() {
           </div>
           <p>
             İtalyan modasının sessiz disiplininden ilham alan çağdaş bir gömlek
-            markası. Az parça, doğru kumaş, zaman dışı kesim.
+            markası. Doğru kumaş, dengeli kalıp, zaman dışı kesim.
           </p>
         </div>
         <div>

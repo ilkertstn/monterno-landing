@@ -11,45 +11,48 @@ export default function AtelierPage() {
     <>
       <Nav current="atelier" />
 
-      <section className="page-head">
+      <section className="page-head about-head">
         <div className="reveal">
           <span className="eyebrow">Hakkımızda</span>
           <h1 className="display" style={{ marginTop: 18 }}>
-            Bir <em>gömlek</em> için modern bir bakış açısı.
+            Gömleğin <em>sessiz</em> detaylarıyla ilgileniyoruz.
           </h1>
         </div>
-        <div className="reveal">
+        <div className="about-head__content reveal">
           <p className="lede">
-            Monterno Milano, İtalyan modasının sessiz disiplininden felsefesini
-            alan çağdaş bir gömlek markasıdır. Az parça, doğru kumaş, dürüst
-            kesim — gardırobun en sade kararı.
+            Monterno Milano, İtalyan giyim kültürünün ölçülü zarafetinden ilham
+            alan çağdaş bir gömlek markasıdır. Kumaş, kalıp ve işçilik bizim
+            için aynı bütünün parçalarıdır; iyi bir gömlek önce hissedilir.
           </p>
+          <div className="about-head__notes" aria-label="Monterno yaklaşımı">
+            <span>Kumaş seçimi</span>
+            <span>Kalıp dengesi</span>
+            <span>Sessiz işçilik</span>
+          </div>
         </div>
       </section>
 
       <section className="feature" id="filosofia">
         <div className="reveal">
           <div
-            className="ph feature__img"
-            data-tone="warm"
-            data-label="Fotoğraf · kumaş kartelası"
+            className="feature__img feature__img--philosophy"
+            aria-label="Monterno gömlek detayı"
           />
         </div>
         <div className="feature__body reveal">
           <span className="eyebrow">Felsefe</span>
           <h2 className="display" style={{ marginTop: 14 }}>
-            Az parça, <em>doğru</em> parça.
+            Gösterişsiz, <em>net</em> bir duruş.
           </h2>
           <p className="lede" style={{ marginTop: 22 }}>
-            Sezonda yüzlerce model üreten bir endüstri içinde, bilerek küçük
-            kalmayı seçtik. Bir gömleğin haftada altı kez giyilmeye değdiği bir
-            gardırop, yirmi parçanın altı ay sonra unutulduğu bir gardıroptan
-            daha tatmin edicidir.
+            Bir gömlek ilk bakışta sakin görünebilir; asıl karakteri gün
+            içinde ortaya çıkar. Yaka formu, omuz çizgisi, kumaşın düşüşü ve
+            düğmenin elde bıraktığı his bizim için tasarımın kendisidir.
           </p>
           <p>
-            Bu yüzden katalog kelimesini sevmeyiz. Az sayıda, iyi düşünülmüş
-            gömlek yapmaya çalışıyoruz. Bir parçanın doğruluğundan emin
-            olmadan, koleksiyona eklemiyoruz. Hız değil, denge.
+            Koleksiyona bir model eklerken önce kullanımını düşünürüz: sabah
+            toplantısında, akşam yemeğinde, seyahatte ya da sıradan bir
+            pazarteside nasıl duracağını. Hız değil, denge.
           </p>
         </div>
       </section>
@@ -57,30 +60,30 @@ export default function AtelierPage() {
       <section className="feature reverse" id="vestibilita">
         <div className="reveal">
           <div
-            className="ph feature__img"
-            data-label="Fotoğraf · beden kalıbı + ölçü cetveli"
+            className="feature__img feature__img--fit"
+            aria-label="Monterno gömlek kalıp ve fit detayı"
           />
         </div>
         <div className="feature__body reveal">
           <span className="eyebrow">Kalıp &amp; Fit</span>
           <h2 className="display" style={{ marginTop: 14 }}>
-            Bedene değil, <em>güne</em> oturur.
+            Gün boyu <em>dengeli</em> bir kalıp.
           </h2>
           <p className="lede" style={{ marginTop: 22 }}>
-            İyi bir gömlek, ne kadar dar olduğuyla değil, gün içinde ne kadar
-            unutulduğuyla ölçülür. Omuz çizgisini, yaka rahatlığını ve kol
-            boyunu tek bedende üç kez denedik — sonra üç defa daha.
+            İyi bir gömlek yalnızca aynada değil, gün boyunca kendini belli
+            eder. Omuz çizgisi yerinde durmalı, yaka sıkmadan formunu korumalı,
+            kol boyu hareket ederken de doğru kalmalıdır.
           </p>
           <p>
-            Standart bedenlerimiz 38&apos;den 44&apos;e kadar gider.
-            Showroom&apos;da deneyebilir, hangi modelin gününüze oturduğunu
-            birlikte kararlaştırabilirsiniz.
+            Bedenlerimiz 38&apos;den 44&apos;e kadar uzanır. Showroom&apos;da
+            modelleri deneyebilir, üzerinizde en iyi duran kalıbı birlikte
+            seçebiliriz.
           </p>
         </div>
       </section>
 
       <section className="quote-band">
-        <p>Az al, doğrusunu seç, uzun süre giy.</p>
+        <p>Doğru kumaş, doğru kalıp, sessiz bir duruş.</p>
       </section>
 
       <section className="pillars" id="materiali">
@@ -106,25 +109,25 @@ export default function AtelierPage() {
               {
                 n: "N° 01",
                 t: "Kalite",
-                d: "İyi bir gömlek iyi kumaşla başlar. Doğru malzemeyi seçmek, doğru bir parçanın ilk şartı.",
+                d: "İyi bir gömlek kumaşla başlar. Dokusu, ağırlığı ve düşüşü doğru değilse tasarımın geri kalanı da eksik kalır.",
                 h: "Malzeme",
               },
               {
                 n: "N° 02",
                 t: "Sadelik",
-                d: "Trendlere koşmuyoruz. Gardırobunuzda yıllarca yer alacak, zaman dışı tasarımlar peşindeyiz.",
+                d: "Fazla detay yerine net çizgiler arıyoruz. Gömleğin yıllar sonra da güncel kalması, ilk bakışta bağırmamasından gelir.",
                 h: "Tasarım",
               },
               {
                 n: "N° 03",
                 t: "Denge",
-                d: "Modern bir kesim, klasik bir duruş. Çok şık değil, çok rahat değil — ikisinin arasında doğru bir yer.",
+                d: "Modern bir kesim, klasik bir duruş. Kalıp ne fazla dar ne fazla rahat; hareketin içinde formunu koruyan bir yerde durur.",
                 h: "Kalıp",
               },
               {
                 n: "N° 04",
                 t: "Sessizlik",
-                d: "Logo değil, gömleğin kendisi konuşur. Detay görünmez ama hissedilir — yaka, dikiş, düğme.",
+                d: "Logo yerine yaka, dikiş ve düğme konuşur. Detaylar kendini göstermek için değil, gömleği daha iyi hissettirmek için vardır.",
                 h: "İşçilik",
               },
             ].map((p) => (
@@ -145,35 +148,38 @@ export default function AtelierPage() {
         <div className="partners__head reveal">
           <span className="eyebrow">Kumaşlar</span>
           <h2 className="display" style={{ marginTop: 14 }}>
-            Üç temel kumaş, <em>tek</em> ölçüt.
+            Kumaşı önce <em>elde</em> anlarız.
           </h2>
           <p className="lede" style={{ marginTop: 22 }}>
-            Koleksiyonumuzda üç ana kumaş ailesi kullanıyoruz: pamuk, keten ve
-            kıvamlı popeline. Her birinin seçim kriteri aynı — uzun ömürlü
-            olması, iyi düşmesi ve giyildikçe karakter kazanması.
+            Pamuk, keten ve poplin bizim için yalnızca kategori değil;
+            gömleğin gün içinde nasıl duracağını belirleyen üç ayrı
+            karakterdir. Her kumaşı dokusu, düşüşü ve zamanla nasıl yaşlandığı
+            üzerinden seçeriz.
           </p>
         </div>
 
         <div className="partners__grid">
           <div className="partner reveal">
-            <div className="ph" data-label="Fotoğraf · pamuk kumaş yakın çekim" />
+            <div
+              className="partner__image partner__image--pamuk"
+              aria-label="Pamuk gömlek kumaşı yakın çekim"
+            />
             <div className="partner__text">
               <span className="where">Klasik · Günlük</span>
               <h3>
                 <em>Pamuk</em>
               </h3>
               <p>
-                Uzun elyaflı pamuk. Yumuşak ama dirençli, ütülenebilir, mevsime
-                aldırmaz. Beyaz ve açık tonların temeli.
+                Temiz duruşlu, yumuşak ama dirençli. Günlük kullanımda formunu
+                koruması ve ciltte bıraktığı sakin his için seçeriz.
               </p>
-              <div className="what">Klasik · Riga · Notte</div>
+              <div className="what">Temiz duruş · Günlük kullanım</div>
             </div>
           </div>
           <div className="partner reveal">
             <div
-              className="ph"
-              data-tone="warm"
-              data-label="Fotoğraf · keten kumaş yakın çekim"
+              className="partner__image partner__image--keten"
+              aria-label="Keten gömlek kumaşı yakın çekim"
             />
             <div className="partner__text">
               <span className="where">Casual · Yaz</span>
@@ -181,28 +187,28 @@ export default function AtelierPage() {
                 <em>Keten</em>
               </h3>
               <p>
-                Hafif, nefes alan, sıcakta rahat. Yıkandıkça yumuşar, doğal
-                kırışıklığı zamanla karakterine dönüşür.
+                Nefes alan, hafif ve doğal kırışıklığıyla yaşayan bir kumaş.
+                Yazlık rahatlığı, kusursuz görünmeye çalışmamasından gelir.
               </p>
-              <div className="what">Lino Naturale · Crema</div>
+              <div className="what">Nefes alır · Karakter kazanır</div>
             </div>
           </div>
           <div className="partner reveal">
             <div
-              className="ph"
-              data-tone="dark"
-              data-label="Fotoğraf · popeline kumaş yakın çekim"
+              className="partner__image partner__image--poplin"
+              aria-label="Poplin gömlek kumaşı yakın çekim"
             />
             <div className="partner__text">
               <span className="where">Akşam · Özel günler</span>
               <h3>
-                <em>Popeline</em>
+                <em>Poplin</em>
               </h3>
               <p>
-                Daha sıkı dokuma, hafif parıltılı bir yüzey. Resmi gömlekler ve
-                akşam parçaları için gövde ve duruş verir.
+                Sıkı dokusu ve net yüzeyiyle daha şehirli bir duruş verir.
+                Yaka, pat ve manşette temiz form aradığımız gömleklerde öne
+                çıkar.
               </p>
-              <div className="what">Notte · Smoking</div>
+              <div className="what">Net form · Şehirli duruş</div>
             </div>
           </div>
         </div>
@@ -210,14 +216,14 @@ export default function AtelierPage() {
 
       <section className="showroom" id="showroom">
         <div className="showroom__head reveal">
-          <span className="eyebrow">Mekânlar</span>
+          <span className="eyebrow">Showroom</span>
           <h2 className="display" style={{ marginTop: 14 }}>
             Bizi <em>ziyaret</em> edin.
           </h2>
           <p className="lede" style={{ marginTop: 22 }}>
-            İstanbul showroom randevuyla açıktır. Kumaşları elde tutmak,
-            modelleri denemek ve doğru bedeni bulmak için bir saatlik bir
-            konuşmaya geliyorsunuz — bir kahve ile.
+            İstanbul showroom randevuyla açıktır. Kumaşları elde görmek,
+            modelleri denemek ve doğru bedeni sakin bir ortamda bulmak için
+            sizi İstanbul&apos;daki showroom&apos;a bekleriz.
           </p>
         </div>
 

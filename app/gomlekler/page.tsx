@@ -15,12 +15,12 @@ export default function ShirtsPage() {
         <div className="reveal">
           <span className="eyebrow">Gömlekler</span>
           <h1 className="display" style={{ marginTop: 18 }}>
-            Az parça. <em>Sessiz</em> bir koleksiyon.
+            Net çizgili, <em>sessiz</em> bir koleksiyon.
           </h1>
         </div>
         <div className="reveal">
           <p className="lede">
-            Az sayıda model, kaliteli kumaş, zaman dışı kesim. Aşağıdaki sayfa
+            Kaliteli kumaş, dengeli kalıp, zaman dışı kesim. Aşağıdaki sayfa
             bir satış vitrini değil — koleksiyonun kataloğudur. Beğendiğinizi
             İstanbul showroom&apos;da deneyebilirsiniz.
           </p>

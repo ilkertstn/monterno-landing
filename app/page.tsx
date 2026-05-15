@@ -51,7 +51,7 @@ export default function HomePage() {
 
           <div className="manifesto__body reveal">
             <p className="manifesto__quote">
-              Modern <em>İtalyan</em> sadeliği. Az parça, doğru kumaş, dürüst{" "}
+              Modern <em>İtalyan</em> sadeliği. Doğru kumaş, net form, dürüst{" "}
               <em>kesim</em>.
             </p>
 
@@ -59,9 +59,9 @@ export default function HomePage() {
 
             <p className="lede">
               Monterno Milano, İtalyan modasının sessiz disiplininden ilham alan
-              çağdaş bir gömlek markasıdır. Az sayıda doğru parça, kaliteli
-              kumaş ve dürüst kesim üzerine kuruludur. Trende karışmayan,
-              mevsime aldırmayan, üzerinize zamanla yerleşen bir gardırop için.
+              çağdaş bir gömlek markasıdır. Kaliteli kumaş, dengeli kalıp ve
+              dürüst kesim üzerine kuruludur. Trende karışmayan, mevsime
+              aldırmayan, üzerinize zamanla yerleşen bir gardırop için.
             </p>
           </div>
         </div>
@@ -140,9 +140,9 @@ export default function HomePage() {
               Kumaşın <em>doğruluğu</em>.
             </h2>
             <p className="lede" style={{ marginTop: 26 }}>
-              Her kumaşı tek tek seçiyoruz. Como popeline&apos;i ve uzun elyaflı
+              Her kumaşı tek tek seçiyoruz. Como poplin&apos;i ve uzun elyaflı
               pamuğu Kuzey İtalya&apos;dan, hafif keteni Portekiz&apos;in batı
-              kıyısından, gece gömlekleri için yoğun popeline&apos;i ise
+              kıyısından, gece gömlekleri için yoğun poplin&apos;i ise
               Biella&apos;dan alıyoruz.
             </p>
             <p>
