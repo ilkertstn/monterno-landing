@@ -6,28 +6,11 @@ function isPublicFile(pathname: string) {
   return pathname.startsWith("/_next") || pathname.startsWith("/api") || /\.[^/]+$/.test(pathname);
 }
 
-function getCountry(request: NextRequest) {
-  return (
-    request.headers.get("x-vercel-ip-country") ||
-    request.headers.get("cf-ipcountry") ||
-    request.headers.get("x-country-code")
-  )?.toUpperCase();
-}
-
 function getPreferredLocale(request: NextRequest) {
   const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
   if (cookieLocale === "tr" || cookieLocale === "en" || cookieLocale === "ru") return cookieLocale;
 
-  const country = getCountry(request);
-  if (country === "TR") return "tr";
-  if (country === "RU") return "ru";
-  if (country) return "en";
-
-  const acceptLanguage = request.headers.get("accept-language") || "";
-  const language = acceptLanguage.toLowerCase();
-  if (language.startsWith("tr")) return "tr";
-  if (language.startsWith("ru")) return "ru";
-  return "en";
+  return "tr";
 }
 
 export function proxy(request: NextRequest) {
