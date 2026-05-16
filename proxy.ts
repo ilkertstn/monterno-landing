@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 const LOCALE_COOKIE = "NEXT_LOCALE";
+type Locale = "tr" | "en" | "ru";
 
 function isPublicFile(pathname: string) {
   return pathname.startsWith("/_next") || pathname.startsWith("/api") || /\.[^/]+$/.test(pathname);
@@ -14,10 +15,30 @@ function getCountry(request: NextRequest) {
   )?.toUpperCase();
 }
 
-function getPreferredLocale(request: NextRequest) {
-  const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
-  if (cookieLocale === "tr" || cookieLocale === "en" || cookieLocale === "ru") return cookieLocale;
+function getPathLocale(pathname: string): Locale {
+  if (pathname === "/en" || pathname.startsWith("/en/")) return "en";
+  if (pathname === "/ru" || pathname.startsWith("/ru/")) return "ru";
+  return "tr";
+}
 
+function stripLocale(pathname: string): string {
+  if (pathname === "/en" || pathname === "/ru") return "/";
+  if (pathname.startsWith("/en/") || pathname.startsWith("/ru/")) return pathname.slice(3);
+  return pathname;
+}
+
+function withLocale(pathname: string, locale: Locale): string {
+  if (locale === "tr") return pathname;
+  if (pathname === "/") return `/${locale}`;
+  return `/${locale}${pathname}`;
+}
+
+function getCookieLocale(request: NextRequest): Locale | null {
+  const value = request.cookies.get(LOCALE_COOKIE)?.value;
+  return value === "tr" || value === "en" || value === "ru" ? value : null;
+}
+
+function getGeoLocale(request: NextRequest): Locale {
   const country = getCountry(request);
   if (country === "TR") return "tr";
   if (country) return "en";
@@ -38,6 +59,7 @@ export function proxy(request: NextRequest) {
   if (languageChoice === "tr" || languageChoice === "en" || languageChoice === "ru") {
     const cleanUrl = nextUrl.clone();
     cleanUrl.searchParams.delete("lang");
+    cleanUrl.pathname = withLocale(stripLocale(cleanUrl.pathname), languageChoice);
 
     const response = NextResponse.redirect(cleanUrl);
     response.cookies.set(LOCALE_COOKIE, languageChoice, {
@@ -48,25 +70,26 @@ export function proxy(request: NextRequest) {
     return response;
   }
 
-  const preferredLocale = getPreferredLocale(request);
-  const isEnglishPath = pathname === "/en" || pathname.startsWith("/en/");
-  const isRussianPath = pathname === "/ru" || pathname.startsWith("/ru/");
-  const hasLocalePath = isEnglishPath || isRussianPath;
+  const pathLocale = getPathLocale(pathname);
+  const cookieLocale = getCookieLocale(request);
 
-  if (!hasLocalePath && preferredLocale === "en") {
+  if (cookieLocale && cookieLocale !== pathLocale) {
     const redirectUrl = nextUrl.clone();
-    redirectUrl.pathname = pathname === "/" ? "/en" : `/en${pathname}`;
+    redirectUrl.pathname = withLocale(stripLocale(pathname), cookieLocale);
     return NextResponse.redirect(redirectUrl);
   }
 
-  if (!hasLocalePath && preferredLocale === "ru") {
-    const redirectUrl = nextUrl.clone();
-    redirectUrl.pathname = pathname === "/" ? "/ru" : `/ru${pathname}`;
-    return NextResponse.redirect(redirectUrl);
+  if (!cookieLocale && pathLocale === "tr") {
+    const geoLocale = getGeoLocale(request);
+    if (geoLocale !== "tr") {
+      const redirectUrl = nextUrl.clone();
+      redirectUrl.pathname = withLocale(pathname, geoLocale);
+      return NextResponse.redirect(redirectUrl);
+    }
   }
 
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-locale", isRussianPath ? "ru" : isEnglishPath ? "en" : "tr");
+  requestHeaders.set("x-locale", pathLocale);
 
   return NextResponse.next({
     request: {
