@@ -6,11 +6,24 @@ function isPublicFile(pathname: string) {
   return pathname.startsWith("/_next") || pathname.startsWith("/api") || /\.[^/]+$/.test(pathname);
 }
 
+function getCountry(request: NextRequest) {
+  return (
+    request.headers.get("x-vercel-ip-country") ||
+    request.headers.get("cf-ipcountry") ||
+    request.headers.get("x-country-code")
+  )?.toUpperCase();
+}
+
 function getPreferredLocale(request: NextRequest) {
   const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
   if (cookieLocale === "tr" || cookieLocale === "en" || cookieLocale === "ru") return cookieLocale;
 
-  return "tr";
+  const country = getCountry(request);
+  if (country === "TR") return "tr";
+  if (country) return "en";
+
+  const acceptLanguage = request.headers.get("accept-language") || "";
+  return acceptLanguage.toLowerCase().startsWith("tr") ? "tr" : "en";
 }
 
 export function proxy(request: NextRequest) {
